@@ -49,8 +49,54 @@ def calcular_columnas(texto, clave):
 def calcular_tamano_matriz(texto, clave):
     return calcular_filas(texto, clave) * calcular_columnas(texto, clave)
 
+import numpy as np
 
+#crear la matriz de cifrado
+def crear_matriz(texto, clave):
+    matriz = np.zeros((calcular_filas(texto, clave), calcular_columnas(texto, clave)))
+    return matriz
 
+#llenar la matriz de cifrado
+def llenar_matriz(matriz, texto, clave):
+    for i in range(len(texto)):
+        matriz[i % clave][i] = texto[i]
+    return matriz
+
+#obtener el texto cifrado
+def obtener_texto_cifrado(matriz, texto, clave):
+    texto_cifrado = ""
+    for i in range(clave):
+        for j in range(len(texto)):
+            if matriz[i][j] != 0:
+                texto_cifrado += matriz[i][j]
+    return texto_cifrado
+
+#codificar el texto
+def codificar(texto, clave):
+    if len(texto) == 0:
+        return ""
+    else:
+        matriz = crear_matriz(texto, clave)
+        matriz = llenar_matriz(matriz, texto, clave)
+        texto_cifrado = obtener_texto_cifrado(matriz, texto, clave)
+        return texto_cifrado
+
+#obtener el texto sin formato
+def obtener_texto_sin_formato(matriz, texto, clave):
+    texto_sin_formato = ""
+    for i in range(len(texto)):
+        texto_sin_formato += matriz[i % clave][i]
+    return texto_sin_formato
+
+#decodificar el texto
+def decodificar(texto, clave):
+    if len(texto) == 0:
+        return ""
+    else:
+        matriz = crear_matriz(texto, clave)
+        matriz = llenar_matriz(matriz, texto, clave)
+        texto_sin_formato = obtener_texto_sin_formato(matriz, texto, clave)
+        return texto_sin_formato
 
 
 
