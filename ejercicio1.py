@@ -11,6 +11,8 @@ El sudoku a resolver ha de estar bien planteado, i.e., ha de tener solución ún
 
 """
 
+from ast import main
+
 def repetido_fila(sudoku, fila, numero):
     for i in range(9):
         if sudoku[fila][i] == numero:
@@ -46,5 +48,6 @@ def resolver_sudoku(sudoku):
     print(sudoku)
 
 
-
+if __name__=="__main__":
+    main()
 
