@@ -9,3 +9,5 @@ Si un término tiene un coeficiente de -1, debe contener solo "-".
 Si el término tiene una potencia de 0, solo se debe incluir el coeficiente. Si el término tiene una potencia de 1, el signo de intercalación y la potencia deben excluirse.
 """
 
+
+
