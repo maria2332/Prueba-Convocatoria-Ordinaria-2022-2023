@@ -31,6 +31,33 @@ Tanto para la codificación como para la decodificación, asuma un número de ri
 Tenga en cuenta que el ejemplo anterior excluye la puntuación y los espacios solo por simplicidad. Sin embargo, hay pruebas que incluyen puntuación. No filtre la puntuación, ya que son parte de la cadena.
 """
 
+#calcular cuantas filas tiene la matriz de cifrado 
+def calcular_filas(texto, clave):
+    if len(texto) < clave:
+        return len(texto)
+    else:
+        return clave
+
+#calcular cuantas columnas tiene la matriz de cifrado
+def calcular_columnas(texto, clave):
+    if len(texto) < clave:
+        return clave
+    else:
+        return len(texto)
+
+#calcular el tamaño de la matriz de cifrado
+def calcular_tamano_matriz(texto, clave):
+    return calcular_filas(texto, clave) * calcular_columnas(texto, clave)
+
+
+
+
+
+
+
+
+
+
 
 
 
