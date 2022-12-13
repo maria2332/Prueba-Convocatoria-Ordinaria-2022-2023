@@ -31,6 +31,7 @@ Tanto para la codificación como para la decodificación, asuma un número de ri
 Tenga en cuenta que el ejemplo anterior excluye la puntuación y los espacios solo por simplicidad. Sin embargo, hay pruebas que incluyen puntuación. No filtre la puntuación, ya que son parte de la cadena.
 """
 
+import ast as main 
 #calcular cuantas filas tiene la matriz de cifrado 
 def calcular_filas(texto, clave):
     if len(texto) < clave:
@@ -98,10 +99,8 @@ def decodificar(texto, clave):
         texto_sin_formato = obtener_texto_sin_formato(matriz, texto, clave)
         return texto_sin_formato
 
-
-
-
-
+if __name__ == "__main__":
+    main()
 
 
 
