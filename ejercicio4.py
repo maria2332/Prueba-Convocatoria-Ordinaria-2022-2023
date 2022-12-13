@@ -7,4 +7,15 @@ Escriba un algoritmo que pueda manejar n hasta 2000000.
 Su algoritmo debe generar la respuesta entera exacta, con total precisión. Además, debe manejar correctamente los números negativos como entrada.
 """
 
+def fibonacci(n):
+    a = 0
+    b = 1
+    for i in range(n):
+        c = a + b
+        a = b
+        b = c
+    return a
+
+print(fibonacci(1000000))
+
 

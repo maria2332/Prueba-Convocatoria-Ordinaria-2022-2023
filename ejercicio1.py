@@ -11,5 +11,45 @@ El sudoku a resolver ha de estar bien planteado, i.e., ha de tener solución ún
 
 """
 
+#comparar si un numero se repite en una fila
+def repetido_fila(sudoku, fila, numero):
+    for i in range(9):
+        if sudoku[fila][i] == numero:
+            return True
+    return False
+
+#comparar si un numero se repite en una columna
+def repetido_columna(sudoku, columna, numero):
+    for i in range(9):
+        if sudoku[i][columna] == numero:
+            return True
+    return False
+
+#comparar si un numero se repite en una subcuadrícula de 3x3
+def repetido_subcuadrado(sudoku, fila, columna, numero):
+    for i in range(3):
+        for j in range(3):
+            if sudoku[i + fila][j + columna] == numero:
+                return True
+    return False
+
+#comprobar si un numero se puede colocar en una posicion
+def es_posible(sudoku, fila, columna, numero):
+    return not repetido_fila(sudoku, fila, numero) and not repetido_columna(sudoku, columna, numero) and not repetido_subcuadrado(sudoku, fila - fila % 3, columna - columna % 3, numero)
+
+#resolver el sudoku
+def resolver_sudoku(sudoku):
+    for fila in range(9):
+        for columna in range(9):
+            if sudoku[fila][columna] == 0:
+                for numero in range(1, 10):
+                    if es_posible(sudoku, fila, columna, numero):
+                        sudoku[fila][columna] = numero
+                        resolver_sudoku(sudoku)
+                        sudoku[fila][columna] = 0
+                return
+    print(sudoku)
+    
+
 
 
